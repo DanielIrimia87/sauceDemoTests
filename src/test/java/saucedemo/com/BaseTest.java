@@ -17,6 +17,7 @@ public abstract class BaseTest extends Utils {
         page = new SauceDemo(driver);
         page.inputUsername.sendKeys("standard_user");
         page.inputPassword.sendKeys("secret_sauce");
+        page.loginButton.click();
     }
 
     @AfterMethod(alwaysRun = true)
