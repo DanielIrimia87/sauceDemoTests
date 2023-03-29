@@ -48,6 +48,16 @@ public class SauceDemo {
     public WebElement inventoryItemAddToCart;
     @FindBy(css = INVENTORY_ITEM_REMOVE)
     public WebElement inventoryItemRemove;
+    // end of Inventory page elements declaration and initialization
+
+    // Shopping cart container elements declaration and initialization
+    public static final String SHOPPING_CART_LINK = "//a[@class='shopping_cart_link']";
+    public static final String SHOPPING_CART_BADGE = ".shopping_cart_badge";
+
+    @FindBy(xpath = SHOPPING_CART_LINK)
+    public WebElement shoppingCartLink;
+    @FindBy(css = SHOPPING_CART_BADGE)
+    public WebElement shoppingCartBadge;
 
     public SauceDemo(WebDriver driver) {
          PageFactory.initElements(driver, this);
