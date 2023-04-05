@@ -53,11 +53,22 @@ public class SauceDemo {
     // Shopping cart container elements declaration and initialization
     public static final String SHOPPING_CART_LINK = "//a[@class='shopping_cart_link']";
     public static final String SHOPPING_CART_BADGE = ".shopping_cart_badge";
+    public static final String CART_ITEM = ".cart_item";
+    public static final String CONTINUE_SHOPPING_BUTTON = "continue-shopping";
+    public static final String CHECKOUT_BUTTON = "checkout";
 
     @FindBy(xpath = SHOPPING_CART_LINK)
     public WebElement shoppingCartLink;
     @FindBy(css = SHOPPING_CART_BADGE)
     public WebElement shoppingCartBadge;
+    @FindBy(css = CART_ITEM)
+    public List<WebElement> cartItems;
+    @FindBy(id = CONTINUE_SHOPPING_BUTTON)
+    public WebElement continueShoppingButton;
+    @FindBy(id = CHECKOUT_BUTTON)
+    public WebElement checkoutButton;
+
+    // end of Shopping cart container elements declaration and initialization
 
     public SauceDemo(WebDriver driver) {
          PageFactory.initElements(driver, this);
