@@ -34,7 +34,7 @@ public class SauceDemo {
     public static final String INVENTORY_ITEM_DESCRIPTION = "div[class='inventory_item_desc']";
     public static final String INVENTORY_ITEM_PRICE = "div[class='inventory_item_price']";
     public static final String INVENTORY_ITEM_ADD_TO_CART = "button[class='btn btn_primary btn_small btn_inventory']";
-    public static final String INVENTORY_ITEM_REMOVE = "button[class='btn btn_secondary btn_small btn_inventory']";
+    public static final String INVENTORY_ITEM_REMOVE = ".btn.btn_secondary.btn_small.cart_button";
 
     @FindBy(css = INVENTORY_ITEMS)
     public List<WebElement> inventoryItems;
