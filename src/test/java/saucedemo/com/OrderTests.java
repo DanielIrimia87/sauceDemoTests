@@ -1,7 +1,6 @@
 package saucedemo.com;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -12,7 +11,7 @@ import static org.testng.Assert.assertTrue;
 
 
 public class OrderTests extends BaseTest {
-    @Test(description = "Verify that adding elements to the cart works as expected")
+    @Test(description = "Verify that adding elements to the cart works as expected", groups = {"with-login"})
     public void addItemsToCart() {
         WebElement shoppingCart = page.shoppingCartLink;
         List<WebElement> inventoryItems = page.inventoryItems;
@@ -26,6 +25,7 @@ public class OrderTests extends BaseTest {
         Assert.assertFalse(isElementPresent(By.cssSelector(page.SHOPPING_CART_BADGE)),
                 "The shopping cart badge should not be present before adding items to the cart");
         firstItemAddToCart.click();
+        page.shoppingCartLink.click();
         Assert.assertEquals(page.inventoryItemRemove.getText().toLowerCase(), "remove",
                 "The first item in the inventory should have a 'Remove' button");
         assertTrue(isElementPresent(By.cssSelector(page.SHOPPING_CART_BADGE)),
@@ -43,7 +43,7 @@ public class OrderTests extends BaseTest {
         Assert.assertEquals(cartItemPrice, firstItemPrice,
                 "Wrong item added to the shopping cart");
 
-        assertTrue(isElementPresent(cartItems.get(0), By.cssSelector(".btn.btn_secondary.btn_small.cart_button")),
+        assertTrue(isElementPresent(page.inventoryItemRemove),
                 "Remove button on card item is not present ");
         assertTrue(isElementPresent(By.id("continue-shopping")),
                 "Continue shopping is not present ");
@@ -53,21 +53,5 @@ public class OrderTests extends BaseTest {
         System.out.println("The first item in the inventory was added to the shopping cart successfully");
     }
 
-    private boolean isElementPresent(By locator) {
-        try {
-            driver.findElement(locator);
-            return true;
-        } catch (NoSuchElementException e) {
-            return false;
-        }
-    }
 
-    private boolean isElementPresent(WebElement element, By locator) {
-        try {
-            element.findElement(locator);
-            return true;
-        } catch (NoSuchElementException e) {
-            return false;
-        }
-    }
 }
