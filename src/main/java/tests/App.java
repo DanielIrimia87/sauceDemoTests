@@ -1,4 +1,4 @@
-package saucedemo.com;
+package tests;
 
 /**
  * Hello world!

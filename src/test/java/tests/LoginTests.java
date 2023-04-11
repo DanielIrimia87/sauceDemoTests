@@ -1,4 +1,4 @@
-package saucedemo.com;
+package tests;
 
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.DataProvider;
@@ -44,7 +44,5 @@ public class LoginTests extends BaseTest {
             assertTrue(page.errorMessage.isDisplayed(),
                     "Error message is not displayed after login with invalid credentials");
         }
-
-
     }
 }

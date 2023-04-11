@@ -1,4 +1,4 @@
-package saucedemo.com;
+package tests;
 
 import Utilities.Utils;
 import org.openqa.selenium.By;
