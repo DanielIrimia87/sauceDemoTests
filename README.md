@@ -14,12 +14,7 @@ This is a test automation project for the Sauce Demo website. The project is wri
 - Clone the repository
 - Open the project in IntelliJ IDEA
 - Run the tests using the TestNG plugin
-- Alternatively, run the tests using Maven
-    - Open a terminal
-    - Navigate to the project directory
-    - Run the command `mvn clean test`
-    - The test results will be displayed in the terminal
-    - The test results will also be displayed in the `target/surefire-reports` directory
+- Run the tests using Maven
     
 ## Test Results
 The test results are displayed in the terminal and in the `target/surefire-reports` directory. 
