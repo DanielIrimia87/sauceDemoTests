@@ -1,5 +1,6 @@
 package Utilities;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -14,16 +15,14 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 
 public class Utils {
 
-    public static RemoteWebDriver getRemoteWebDriver(){
-        try {
-            return new RemoteWebDriver(new URL("http://localhost:4444"), new ChromeOptions());
-        } catch (MalformedURLException e) {
-            throw new RuntimeException(e);
-        }
+    public static RemoteWebDriver getRemoteWebDriver() throws MalformedURLException {
+        return new RemoteWebDriver(new URL("http://localhost:4444"), new ChromeOptions());
     }
 
     public static WebDriver getChromeDriver() {
@@ -65,6 +64,15 @@ public class Utils {
 //        String windowHandle = iterator.next();
 //        driver.switchTo().window(windowHandle);
 //    }
+
+    public static ChromeDriver getChromeDriverWithOptions() {
+        ChromeOptions options = new ChromeOptions();
+        Map <String,String> map = new HashMap<>();
+        map.put("deviceName", "iPhone X");
+        options.setExperimentalOption("mobileEmulation", map);
+        WebDriverManager.chromedriver().setup();
+        return new ChromeDriver(options);
+    }
 }
 
 
