@@ -8,8 +8,6 @@ import org.testng.annotations.Test;
 import java.util.List;
 
 import static org.testng.Assert.assertTrue;
-
-
 public class OrderTests extends BaseTest {
     @Test(description = "Verify that adding elements to the cart works as expected", groups = {"with-login"})
     public void addItemsToCart() {
